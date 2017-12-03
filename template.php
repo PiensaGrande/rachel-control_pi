@@ -13,6 +13,9 @@ if(isset($dir)) {
 	$tmpl_dir = dirname(__FILE__);
 }
 
+
+include "messages.php";
+
 // hide_index is for special case modules that may not need a display to students
 $templ["hide_index"] = "yes";
 $templ["index_loc"] = "{$tmpl_dir}/index.php";
@@ -36,5 +39,4 @@ switch ($lang1) {
 	// could add new language translations here as extra cases
 }
 
-include "messages.php";
 ?>

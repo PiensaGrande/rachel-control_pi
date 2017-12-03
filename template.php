@@ -14,7 +14,7 @@ if(isset($dir)) {
 }
 
 // hide_index is for special case modules that may not need a display to students
-$templ["hide_index"] = "no";
+$templ["hide_index"] = "yes";
 $templ["index_loc"] = "{$tmpl_dir}/index.php";
 $templ["engine_loc"] = dirname(__FILE__) . "/control_pi.php";
 $web_path = str_replace($_SERVER['DOCUMENT_ROOT'], '', dirname(__FILE__));

@@ -7,7 +7,7 @@ include "template.php";
 
 // Permit template.php to define whether we show anything on index.
 // Remember that hiding in admin will cause rachel-admin.php to be hidden as well.
-if ($templ["hide_index"] == "yes") { return; }
+if (strtoupper($templ["hide_index"]) == "YES") { return; }
 
 // Here we build core module structure with logo, title
 // Note the availability of this data to jquery using data-

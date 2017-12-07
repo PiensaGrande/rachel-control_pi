@@ -1,7 +1,6 @@
 <?php namespace pg_control_pi; ?>
-<?php require_once($_SERVER["DOCUMENT_ROOT"] .  "/admin/common.php"); ?>
 <?php 
-include "template.php";
+include dirname(__FILE__) . "/template.php";
 
 // This is a rachel-admin.php file. It is an optional file that RACHEL uses to
 // display your module on the RACHEL admin page to allow access to admin-specific files or functions. 
@@ -14,9 +13,9 @@ echo "<div class='adminmodule' data-moduletype='{$templ['module_type']}' data-ti
 
 // We use an engine which processes a form in the background if called from a POST
 // note that a button with jquery script to ajax submit doesn't work if this is called 
-// directly because there is no header to place jquery in the page.
+// directly (unless the extension is running) because there is no header to place jquery in the page.
 
-echo "<div id='siteDivWrapper'>";
+echo "<div id='{$templ['dirname']}DivWrapper'>";
 include $templ["engine_loc"];
 echo "</div></div>";
 include $templ["js_loc"];

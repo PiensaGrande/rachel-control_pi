@@ -1,8 +1,9 @@
+<?php namespace pg_control_pi; ?>
 <?php require_once($_SERVER["DOCUMENT_ROOT"] .  "/admin/common.php"); ?>
 <?php
     $preflang = getlang();
     require_once($_SERVER["DOCUMENT_ROOT"] . "/admin/lang/lang.$preflang.php");
-    include "template.php";
+    include dirname(__FILE__) . "/template.php";
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $lang['langcode'] ?>">

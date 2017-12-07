@@ -1,9 +1,8 @@
 <?php namespace pg_control_pi; ?>
-<?php require_once($_SERVER["DOCUMENT_ROOT"] .  "/admin/common.php"); ?>
 <?php 
 // Place module specific hints for RACHEL in template.php
 // For a simple module, that will be all that is necessary.
-include "template.php"; 
+include dirname(__FILE__) . "/template.php"; 
 
 // Permit template.php to define whether we show anything on index.
 // Remember that hiding in admin will cause rachel-admin.php to be hidden as well.

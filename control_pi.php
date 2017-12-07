@@ -1,7 +1,8 @@
 <?php namespace pg_control_pi; ?>
 <?php require_once($_SERVER["DOCUMENT_ROOT"] .  "/admin/common.php"); ?>
 <?php
-require_once("template.php");
+require_once(dirname(__FILE__) . "/pg-common.php");
+include(dirname(__FILE__) . "/template.php");
 $currlang = getlang();
 
 if (isset($_POST['shutdown'])) {
@@ -57,24 +58,3 @@ if (file_exists("/usr/bin/raspi-config") || file_exists("/etc/fake-raspi-config"
 }
 
 ?>
-<?php
-    // setPiTimezone()...This will do nothing if not raspberry pi.
-    // The sole reason this exists is to make date('Y/m/d H:i:s'); return local time correctly when common.php has been included (for getlang() usually.)
-    // This, and all references to it can probably be deleted if the set timezone in common is removed or replaced by the code below.
-    // Code maintainers for common.php will have to decide though because i'm sure they had a reason for the setting.
-
-function setPiTimezone() {
-  if (file_exists("/usr/bin/raspi-config") || file_exists("/etc/fake-raspi-config")) { # for testing on non-raspi systems
-    if (file_exists("/etc/timezone")) {
-        $f_contents = file_get_contents("/etc/timezone");
-        if ($f_contents) {
-                $timezone = preg_replace('~[\r\n]+~', '', $f_contents);
-        }
-    }
-    date_default_timezone_set($timezone);
-    return true;
-  }
-}
-
-?>
-
